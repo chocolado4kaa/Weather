@@ -1,12 +1,11 @@
 import "./Today.scss";
-import Div from "../Div/Div.jsx";
 
 const Today = () => {
   return (
     <section className="today">
-        <Div className="today__container">
+        <div className="today__container container">
 
-        </Div>
+        </div>
     </section>
   )
 }

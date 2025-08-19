@@ -1,13 +1,12 @@
 import "./Days.scss";
-import Div from "../Div/Div";
 
 const Days = () => {
   return (
-    <section className="days flex w-full flex-row items-center justify-between gap-8">
+    <section className="days">
         {DaysData.map((item, index) => (
-          <Div key={index} className="day__item w-full">
+          <div key={index} className="day__item container">
             <p className="day__title">{item.title}</p>
-          </Div>
+          </div>
         ))}
     </section>
   );
@@ -16,10 +15,6 @@ const Days = () => {
 export default Days;
 
 const DaysData = [
-    /*{
-        title: "Monday",
-
-    },*/
     {
         title: "Tuesday",
 

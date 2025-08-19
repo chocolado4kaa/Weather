@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <main className="main-content mt-10">
+      <main className="main-content">
         <Today />
         <Graphs />
         <Days />

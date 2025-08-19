@@ -1,13 +1,12 @@
-import Div from "../Div/Div";
 import "./Graph.scss";
 
 const Graphs = () => {
   return (
-    <section className="graphs flex w-full flex-row items-center justify-between gap-8">
+    <section className="graphs">
       {graphData.map((item, index) => (
-        <Div key={index} className="graph__item w-full">
+        <div key={index} className="graph__item container">
           <p>{item.title}</p>
-        </Div>
+        </div>
       ))}
     </section>
   );

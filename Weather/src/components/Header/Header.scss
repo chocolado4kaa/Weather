@@ -1,4 +1,11 @@
 .header {
+  width: 100%;
+  .header__content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
   .header__location {
     font-family: Open Sans;
     font-weight: 400;
@@ -8,7 +15,18 @@
     letter-spacing: 0%;
   }
 
+  .header__functions{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
   .header__container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
     position: relative;
     outline: none;
     width: 360px;
@@ -31,7 +49,7 @@
       mask-composite: exclude;
       pointer-events: none;
     }
-    svg path {
+    .header__search-icon path {
       fill: var(--main-color);
     }
   }
