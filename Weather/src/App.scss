@@ -1,0 +1,94 @@
+.light-theme {
+  --main-color: #080338;
+  --border-color: linear-gradient(
+    116.87deg,
+    rgba(73, 73, 73, 0.4) -81.35%,
+    rgba(255, 255, 255, 0) 112.36%
+  );
+  --background-color: linear-gradient(
+    162.91deg,
+    rgba(0, 0, 0, 0.03) -1.68%,
+    rgba(255, 255, 255, 0.093125) 127.54%,
+    rgba(255, 255, 255, 0.112968) 127.56%,
+    rgba(255, 255, 255, 0.111191) 127.57%,
+    rgba(255, 255, 255, 0.15) 127.58%
+  );
+
+  background-color: #fff;
+  color: var(--main-color);
+}
+
+.dark-theme {
+  --main-color: #ffffff;
+  --border-color: linear-gradient(
+    116.87deg,
+    rgba(255, 255, 255, 0.4) -81.35%,
+    rgba(255, 255, 255, 0) 112.36%
+  );
+  --background-color: linear-gradient(
+    162.91deg,
+    rgba(255, 255, 255, 0.03) -1.68%,
+    rgba(255, 255, 255, 0.093125) 127.54%,
+    rgba(255, 255, 255, 0.112968) 127.56%,
+    rgba(255, 255, 255, 0.111191) 127.57%,
+    rgba(255, 255, 255, 0.15) 127.58%
+  );
+
+  background-color: #080338;
+  color: var(--main-color);
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+
+  --light-gray: #c0c0c0;
+  --gray: #686868;
+}
+
+#root * {
+  :active,
+  :hover,
+  :focus {
+    outline: 0;
+    outline-offset: 0;
+  }
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
