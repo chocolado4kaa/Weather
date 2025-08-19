@@ -1,0 +1,12 @@
+.days{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    .day__item{
+        height: 150px;
+        width: 100%;
+    }
+}
