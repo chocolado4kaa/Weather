@@ -1,4 +1,4 @@
-.light-theme {
+[data-theme="light"] {
   --main-color: #080338;
   --border-color: linear-gradient(
     116.87deg,
@@ -18,7 +18,22 @@
   color: var(--main-color);
 }
 
-.dark-theme {
+body {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Якщо використовуєш градієнти як фон через --background-color, 
+   можна анімувати background з допомогою псевдоелементу */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: var(--background-color);
+  transition: background 0.3s; /* плавне перемикання градієнту */
+}
+
+[data-theme="dark"] {
   --main-color: #ffffff;
   --border-color: linear-gradient(
     116.87deg,
@@ -55,6 +70,10 @@
     outline: 0;
     outline-offset: 0;
   }
+}
+
+section{
+  margin: 2rem auto;
 }
 
 .logo {

@@ -1,6 +1,8 @@
 import './App.scss';
 import Header from './components/Header/Header.jsx';
-import Div from './components/Div/Div.jsx';
+import Today from './components/Today/Today.jsx';
+import Graphs from './components/Graph/Graph.jsx';
+import Days from './components/Days/Days.jsx';
 
 function App() {
 
@@ -8,9 +10,9 @@ function App() {
     <div className="App">
       <Header />
       <main className="main-content mt-10">
-        <Div className="w-full main-div h-50">
-
-        </Div>
+        <Today />
+        <Graphs />
+        <Days />
      </main>
     </div>
   )

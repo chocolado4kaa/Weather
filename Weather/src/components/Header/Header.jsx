@@ -1,4 +1,5 @@
 import "./Header.scss";
+import ThemeChangeButton from "./ThemeChangeButton.jsx";
 
 const Header = () => {
   return (
@@ -7,8 +8,8 @@ const Header = () => {
         <div className="header__current-location">
           <h1 className="header__location">Vinnytsia, Ukraine</h1>
         </div>
-        <div className="header__search-bar">
-          <div className="input-container flex items-center justify-start flex gap-4 relative">
+        <div className="header__functions flex flex-row items-center justify-between gap-4">
+          <div className="header__container flex items-center justify-start flex gap-4">
             <svg
               width="21"
               height="21"
@@ -28,6 +29,7 @@ const Header = () => {
               placeholder="Search the city"
             />
           </div>
+          <ThemeChangeButton />
         </div>
       </div>
     </header>
@@ -35,3 +37,4 @@ const Header = () => {
 };
 
 export default Header;
+

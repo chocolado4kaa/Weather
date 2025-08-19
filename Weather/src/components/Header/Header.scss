@@ -8,7 +8,8 @@
     letter-spacing: 0%;
   }
 
-  .input-container {
+  .header__container {
+    position: relative;
     outline: none;
     width: 360px;
     height: 50px;
@@ -19,11 +20,11 @@
       position: absolute;
       content: "";
       inset: 0;
+      z-index: 0;
       padding: 1px;
       border-radius: 30px;
       background: var(--border-color);
-      mask: linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
       -webkit-mask: linear-gradient(#fff 0 0) content-box,
         linear-gradient(#fff 0 0);
       -webkit-mask-composite: xor;
@@ -33,5 +34,31 @@
     svg path {
       fill: var(--main-color);
     }
+  }
+}
+
+.header__container.header__button {
+  width: 75px;
+  overflow: hidden;
+  z-index: 1;
+  &.light {
+    &::after {
+      left: 25px;
+      background: #fff url("./public/icons/cloud+sun.png") no-repeat center 
+      center / 70% auto;;
+    }
+  }
+  &::after {
+    left: -1px;
+    transition: all 0.3s ease-in-out;
+    z-index: -1;
+    position: absolute;
+    content: "";
+    inset: 0;
+    width: 50px;
+    height: 100%;
+    border-radius: 100%;
+    background: #080338 url("./public/icons/cloud+moon.png") no-repeat center 
+      center / 70% auto;
   }
 }
