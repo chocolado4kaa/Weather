@@ -1,0 +1,96 @@
+.header {
+  width: 100%;
+  .header__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .header__location {
+    font-family: Open Sans;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 1.5rem;
+    line-height: 100%;
+    letter-spacing: 0%;
+  }
+
+  .header__functions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .header__container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+    position: relative;
+    outline: none;
+    width: 22.5rem;
+    height: 3rem;
+    border-radius: 30px;
+    padding: 0 20px;
+    background: var(--background-color);
+    &::before {
+      position: absolute;
+      content: "";
+      inset: 0;
+      z-index: 0;
+      padding: 1px;
+      border-radius: 30px;
+      background: var(--border-color);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    .header__search-icon {
+      background: var(--search-icon) no-repeat center center / contain;
+      width: 1.5rem;
+      height: 1.5rem;
+      display: inline-block;
+    }
+  }
+
+  .header__container .input-field {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+  }
+}
+
+.header__container.header__button {
+  width: 5rem;
+  overflow: hidden;
+  z-index: 1;
+  &.light {
+    &::after {
+      left: 2rem;
+      background: #fff url("./public/icons/cloud+sun.png") no-repeat center
+        center / 70% auto;
+    }
+  }
+  &::after {
+    left: -1px;
+    transition: all 0.3s ease-in-out;
+    z-index: -1;
+    position: absolute;
+    content: "";
+    inset: 0;
+    width: 3rem;
+    height: 100%;
+    border-radius: 100%;
+    background: #080338 url("./public/icons/cloud+moon.png") no-repeat center
+      center / 70% auto;
+  }
+}
