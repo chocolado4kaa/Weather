@@ -37,7 +37,21 @@ body::before {
       mask-composite: exclude;
       pointer-events: none;
     }
+  .container__header{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 1rem 2rem;
+    h2{
+      font-size: 1.5rem;
+      margin: 0;
+      font-weight: 400;
+      color: var(--main-color);
+    }
+  }
 }
+
+
 
 [data-theme="dark"] {
   --main-color: #ffffff;

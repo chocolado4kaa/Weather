@@ -1,5 +1,40 @@
-.today{
-    div{
-        min-height: 18rem;
+.today {
+  .today__container {
+    min-height: 18rem;
+  }
+  .container__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2rem;
+    .temperature {
+      width: 25%;
     }
+    .weather {
+      width: 75%;
+      table {
+        width: 100%;
+        .table__days th {
+          font-style: normal;
+          font-weight: 400;
+          font-size: 1.5rem;
+        }
+        .table__times th {
+          font-style: normal;
+          font-weight: 400;
+          font-size: 1.25rem;
+        }
+        .table__indicators td {
+          font-style: normal;
+          font-weight: 400;
+          font-size: 1.1rem;
+          &.table__col-title {
+            font-weight: 300;
+            color: var(--light-gray);
+            text-align: end;
+          }
+        }
+      }
+    }
+  }
 }
