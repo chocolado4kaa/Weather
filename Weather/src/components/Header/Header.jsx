@@ -1,6 +1,5 @@
 import "./Header.scss";
 import ThemeChangeButton from "./ThemeChangeButton.jsx";
-import SearchIcon from "./search.svg?react";
 
 const Header = () => {
   return (
@@ -11,7 +10,7 @@ const Header = () => {
         </div>
         <div className="header__functions">
           <div className="header__container">
-            <SearchIcon className="header__search-icon" />
+            <div className="header__search-icon"/>
             <input
               type="text"
               className="input-field"

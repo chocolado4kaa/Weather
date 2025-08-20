@@ -1,9 +1,10 @@
 import "./Graph.scss";
+import grapsData from "./../../shared/const/GraphsData.jsx";
 
 const Graphs = () => {
   return (
     <section className="graphs">
-      {graphData.map((item, index) => (
+      {grapsData.map((item, index) => (
         <div key={index} className="graph__item container">
           <p>{item.title}</p>
         </div>
@@ -13,15 +14,3 @@ const Graphs = () => {
 };
 
 export default Graphs;
-
-const graphData = [
-  {
-    title: "UV Index",
-  },
-  {
-    title: "Sunrise  and Sunset",
-  },
-  {
-    title: "Humidity",
-  },
-];

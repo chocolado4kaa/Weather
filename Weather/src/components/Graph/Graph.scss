@@ -5,7 +5,7 @@
     justify-content: space-between;
     gap: 2rem;
     .graph__item{
-        height: 250px;
+        min-height: 15rem;
         width: 100%;
     }
 }

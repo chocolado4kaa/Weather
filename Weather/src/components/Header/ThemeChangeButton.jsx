@@ -16,7 +16,7 @@ const ThemeChangeButton = () => {
   return (
     <button
       className={`header__button header__container ${theme}`}
-      onClick={() => changeTheme()}
+      onClick={changeTheme}
     ></button>
   );
 };

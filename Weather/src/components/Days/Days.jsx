@@ -1,4 +1,5 @@
 import "./Days.scss";
+import DaysData from "./../../shared/const/DaysData.jsx";
 
 const Days = () => {
   return (
@@ -13,30 +14,3 @@ const Days = () => {
 }
 
 export default Days;
-
-const DaysData = [
-    {
-        title: "Tuesday",
-
-    },
-    {
-        title: "Wednesday",
-
-    },
-    {
-        title: "Thursday",
-
-    },
-    {
-        title: "Friday",
-
-    },
-    {
-        title: "Saturday",
-
-    },
-    {
-        title: "Sunday",
-
-    }
-]
