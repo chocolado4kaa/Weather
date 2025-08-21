@@ -4,7 +4,7 @@ import { useWeather } from "../../hooks/useWeather";
 import weatherIcons from "../../shared/const/Conditions";
 
 const Today = () => {
-  const { weather } = useWeather("forecast", "days=1&aqi=no&alerts=no");
+  const { weather } = useWeather();
 
   const localtime = weather?.location.localtime;
   const date = new Date(localtime);
@@ -13,7 +13,7 @@ const Today = () => {
   const iconObj = weatherIcons.find(
     (w) => w.code === weather?.current.condition.code
   );
-  const icon = iconObj ? (isDay ? iconObj.dayicon : iconObj.nighticon) : "";
+  const icon = iconObj && (isDay ? iconObj.dayicon : iconObj.nighticon) ;
 
   const formattedDate = date.toLocaleString("en-US", {
     year: "numeric",
@@ -27,9 +27,9 @@ const Today = () => {
   return (
     <section className="today">
       <div className="today__container container">
-        <div className="container__header">
+        <header className="container__header">
           <h2 className="today__time">{formattedDate}</h2>
-        </div>
+        </header>
         <div className="container__content">
           <div className="temperature">
             <div className="temperature__icon">

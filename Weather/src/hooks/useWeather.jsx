@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { clearWeather, fetchWeather } from "../WeatherSlice";
+import { clearWeather, fetchWeather } from "../store/WeatherSlice";
 
-export const useWeather = (method, modifier) => {
-  const {city, weather, loading, error } = useSelector((s) => s.weather);
+export const useWeather = () => {
+  const { city, weather, loading, error } = useSelector((s) => s.weather);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -11,8 +11,8 @@ export const useWeather = (method, modifier) => {
     if (!cleanCityValue) return;
 
     dispatch(clearWeather());
-    dispatch(fetchWeather({ method, modifier, cityName: cleanCityValue }));
-  }, [city, method, modifier, dispatch]);
+    dispatch(fetchWeather({ cityName: cleanCityValue }));
+  }, [city, dispatch]);
 
   return { weather, loading, error };
 };

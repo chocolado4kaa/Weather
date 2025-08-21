@@ -7,7 +7,6 @@ const ForecastTable = ({ weather }) => {
   const selectedHours = weather?.forecast?.forecastday?.[0]?.hour.filter((h) =>
     hours.some((hour) => hour.time === h.time.slice(-5))
   );
-  console.log(selectedHours);
 
   const getIcon = (hour) => {
     const iconObj = weatherIcons.find((w) => w.code === hour.condition.code);
@@ -15,7 +14,7 @@ const ForecastTable = ({ weather }) => {
   };
 
   return (
-    <table className="forecast">
+    <table className="todays-forecast__table">
       <thead>
         <tr className="table__dayTimes">
           <td rowSpan="2"></td>
