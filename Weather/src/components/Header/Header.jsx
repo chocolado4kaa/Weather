@@ -1,17 +1,19 @@
 import "./Header.scss";
-import { useContext, useState } from "react";
-import { CityContext } from "../../context/CityContext";
+import { useState } from "react";
 import ThemeChangeButton from "./ThemeChangeButton.jsx";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchWeather, setCity } from "../../WeatherSlice.jsx";
+
 
 const Header = () => {
-  const { city, setCity, cityData } = useContext(CityContext);
-  const [inputValue, setInputValue] = useState(city);
+  const dispatch = useDispatch();
+  const {city, weather, loading, error} = useSelector((s) => s.weather)
+  const [inputValue, setInputValue] = useState();
 
   const handleSearch = (e) => {
     e.preventDefault();
-    if (inputValue.trim()) {
-      setCity(inputValue.trim());
-    }
+    dispatch(setCity(inputValue));
+    dispatch(fetchWeather(inputValue));
   };
 
   return (
@@ -19,13 +21,14 @@ const Header = () => {
       <div className="header__content">
         <div className="header__current-location">
           <h1 className="header__location">
-            {cityData
-              ? `${cityData.location.name}, ${cityData.location.country}`
+            {loading && "Loading..." || error && `${error}`}
+            {weather
+              ? `${weather.location.name}, ${weather.location.country}`
               : ""}
           </h1>
         </div>
         <div className="header__functions">
-          <form className="header__container" onSubmit={handleSearch}>
+          <form className="header__container" onSubmit={(e) => handleSearch(e)}>
             <div className="header__search-icon" />
             <input
               type="text"

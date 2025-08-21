@@ -1,6 +1,4 @@
 import ForecastTable from "./ForecastTable";
-import { useContext } from "react";
-import { CityContext } from "../../context/CityContext";
 import "./Today.scss";
 
 const Today = () => {
