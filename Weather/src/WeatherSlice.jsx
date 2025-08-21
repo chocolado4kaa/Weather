@@ -4,10 +4,10 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 export const fetchWeather = createAsyncThunk(
   "weather/fetchWeather",
-  async (cityName, { rejectWithValue }) => {
+  async ({ method = "current", modifier = "aqi=no", cityName = "Kyiv" }, { rejectWithValue }) => {
     try {
       const response = await fetch(
-        `https://api.weatherapi.com/v1/current.json?key=${API_key}&q=${cityName}&aqi=no`
+        `https://api.weatherapi.com/v1/${method}.json?key=${API_key}&q=${cityName}&${modifier}`
       );
 
       const data = await response.json();

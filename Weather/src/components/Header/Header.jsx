@@ -8,12 +8,12 @@ import { fetchWeather, setCity } from "../../WeatherSlice.jsx";
 const Header = () => {
   const dispatch = useDispatch();
   const {city, weather, loading, error} = useSelector((s) => s.weather)
-  const [inputValue, setInputValue] = useState();
+  const [inputValue, setInputValue] = useState("");
 
   const handleSearch = (e) => {
     e.preventDefault();
     dispatch(setCity(inputValue));
-    dispatch(fetchWeather(inputValue));
+    dispatch(fetchWeather({cityName: inputValue}));
   };
 
   return (

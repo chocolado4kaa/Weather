@@ -9,6 +9,21 @@
     padding: 1rem 2rem;
     .temperature {
       width: 25%;
+      height: 100%;
+      .temperature__icon {
+        width: 100%;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+      .temperature__value {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 4.5rem;
+        text-align: center;
+      }
     }
     .weather {
       width: 75%;
@@ -28,6 +43,11 @@
           font-style: normal;
           font-weight: 400;
           font-size: 1.1rem;
+          .condition_icon {
+            height: 2rem;
+            width: 2.5rem;
+            object-fit: contain;
+          }
           &.table__col-title {
             font-weight: 300;
             color: var(--light-gray);
