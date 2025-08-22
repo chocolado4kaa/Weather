@@ -10,7 +10,6 @@ export const useWeather = () => {
     const cleanCityValue = city?.trim();
     if (!cleanCityValue) return;
 
-    dispatch(clearWeather());
     dispatch(fetchWeather({ cityName: cleanCityValue }));
   }, [city, dispatch]);
 

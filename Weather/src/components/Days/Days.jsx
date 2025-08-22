@@ -8,26 +8,27 @@ const Days = () => {
   const forecast =
     weather?.forecast.forecastday.slice(1, 7) || Array(6).fill(null);
 
+    const getIcon = (code) => {
+    const iconObj = weatherIcons.find((w) => w.code === code);
+    return iconObj?.dayicon;
+  };
+
+  const getFormattedDate = (dateStr) => {
+    const dateObj = new Date(dateStr);
+    return {
+      weekday: dateObj.toLocaleDateString("en-US", { weekday: "short" }),
+      monthDay: dateObj.toLocaleDateString("en-US", {
+        day: "numeric",
+        month: "long",
+      }),
+    };
+  };
+
   return (
     <section className="forecast">
       {forecast.map((day, index) => {
-        const dateObj = new Date(day?.date);
-
-        const getIcon = () => {
-          const iconObj = weatherIcons.find(
-            (w) => w.code === day?.day.condition.code
-          );
-          return iconObj?.dayicon;
-        };
-
-        const weekday = dateObj.toLocaleDateString("en-US", {
-          weekday: "short",
-        });
-        const monthDay = dateObj.toLocaleDateString("en-US", {
-          day: "numeric",
-          month: "long",
-        });
-
+        if (!day) return <div key={index} className="forecast-day container" />;
+        const { weekday, monthDay } = getFormattedDate(day.date);
         return (
           <div key={index} className="forecast-day container">
             <header className="forecast-day__header">
@@ -37,7 +38,7 @@ const Days = () => {
             <div className="forecast-day__content">
               <div className="forecast-day__icon">
                 <img
-                  src={getIcon()}
+                  src={getIcon(day?.day.condition.code)}
                   alt={day?.day.condition?.text}
                   className="condition_icon"
                 />

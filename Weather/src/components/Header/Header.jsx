@@ -9,8 +9,7 @@ const Header = () => {
   const { city, weather, loading, error } = useSelector((s) => s.weather);
   const [inputValue, setInputValue] = useState("");
 
-  const handleSearch = (e) => {
-    e.preventDefault();
+  const handleSearch = () => {
     dispatch(setCity(inputValue));
   };
 
@@ -26,15 +25,20 @@ const Header = () => {
           </h1>
         </div>
         <div className="header__functions">
-          <form className="header__container" onSubmit={handleSearch}>
+          <div className="header__container">
             <div className="header__search-icon" />
             <input
               type="text"
               className="input-field"
               placeholder="Search the city"
               onChange={(e) => setInputValue(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  handleSearch();
+                }
+              }}
             />
-          </form>
+          </div>
           <ThemeChangeButton />
         </div>
       </div>
