@@ -12,10 +12,16 @@ export const fetchWeather = createAsyncThunk(
       const data = await response.json();
 
       if (!response.ok || data.error) {
-        throw new Error(data.error?.message || `HTTP error! Status: ${response.status}`);
+        throw new Error(
+          data.error?.message || `HTTP error! Status: ${response.status}`
+        );
       }
 
-      const currentHour = data.forecast.forecastday[0].hour.find(h => h.time === data.location.localtime);
+      const localHour = data.location.localtime.slice(0, 13);
+
+      const currentHour = data.forecast.forecastday[0].hour.find(
+        (h) => h.time.slice(0, 13) === localHour
+      );
 
       const combinedData = {
         location: data.location,
@@ -30,8 +36,6 @@ export const fetchWeather = createAsyncThunk(
     }
   }
 );
-
-
 
 const WeatherSlice = createSlice({
   name: "Weather",
