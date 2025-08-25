@@ -31,18 +31,22 @@ const SunRise = ({ hours }) => {
   const currentTime = convertToMinutes(localTime());
 
   const data = {
-  datasets: [
-    {
-      data: [currentTime - sunRise, 25, sunSet - currentTime],
-      backgroundColor: ["rgba(255,255,255,0)", "#fcb045", "rgba(255,255,255,0)"],
-      borderWidth: [1, 10, 1],
-      borderColor: ["#fff", "#fcb045", "#fff"],
-      cutout: "100%",
-      borderRadius: [0, 10, 0],
-      borderDash: [10, 0, 10],
-    },
-  ],
-};
+    datasets: [
+      {
+        data: [currentTime - sunRise, 20, sunSet - currentTime],
+        backgroundColor: [
+          "rgba(255,255,255,0)",
+          "#fcb045",
+          "rgba(255,255,255,0)",
+        ],
+        borderWidth: [1,25, 1],
+        borderColor: ["#686868", "#fcb045", "#686868"],
+        cutout: "99.9%",
+        borderRadius: [0,1, 0],
+        borderDash: [5, 15],
+      },
+    ],
+  };
 
   const options = {
     rotation: -90,

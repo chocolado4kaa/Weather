@@ -6,6 +6,7 @@ import {
   PointElement,
   LineElement,
   Tooltip,
+  Filler,
 } from "chart.js";
 import hours from "../../shared/const/Hours";
 
@@ -14,21 +15,45 @@ ChartJS.register(
   LinearScale,
   PointElement,
   LineElement,
-  Tooltip
+  Tooltip,
+  Filler
 );
 
 const Humidity = ({ dataset }) => {
   const humidityData = dataset?.map((item) => item.humidity) || [];
+  console.log(dataset);
+
+  const currentHumidity =
+    dataset && dataset.length > 0
+      ? Math.round(
+          dataset.reduce((sum, item) => sum + item.humidity, 0) / dataset.length
+        )
+      : null;
 
   const data = {
-    labels: humidityData,
+    labels: dataset?.map((_, index) => index) || [],
     datasets: [
       {
         data: humidityData,
         fill: true,
-        borderColor: "#ffffffff",
-        backgroundColor: "#000",
-        borderWidth: 1,
+        backgroundColor: (ctx) => {
+          const chart = ctx.chart;
+          const { ctx: canvasCtx, chartArea } = chart;
+
+          if (!chartArea) return null;
+
+          const gradient = canvasCtx.createLinearGradient(
+            0,
+            chartArea.bottom,
+            0,
+            chartArea.top
+          );
+          gradient.addColorStop(0, "rgba(95, 138, 255, 0.4)");
+          gradient.addColorStop(1, "rgba(95, 138, 255, 0)");
+          return gradient;
+        },
+        borderColor: "#686868",
+        borderWidth: 1.5,
         tension: 0.4,
         pointRadius: 0,
       },
@@ -37,17 +62,21 @@ const Humidity = ({ dataset }) => {
 
   const options = {
     responsive: true,
+    maintainAspectRatio: false,
     plugins: {
-      tooltip: { enabled: true },
+      tooltip: { enabled: false },
+      legend: { display: false },
     },
     scales: {
       x: {
-        display: false,
+        display: true,
+        ticks: { display: false },
+        grid: { display: false },
       },
       y: {
         display: false,
-        suggestedMin: 0,
-        suggestedMax: 100,
+        min: 0,
+        max: 100,
       },
     },
   };
@@ -56,10 +85,10 @@ const Humidity = ({ dataset }) => {
     <div className="graph container">
       <header className="graph__header">
         <h3>Humidity</h3>
-        <h3>{}%</h3>
+        <h3>{currentHumidity}%</h3>
       </header>
       <div className="graph__content">
-        <Line data={data} options={options} type="line" />
+        <Line data={data} options={options} className="graph__canvas" />
         <div className="labels">
           {hours.map((hour, index) => (
             <p key={index}>{hour.title}</p>
