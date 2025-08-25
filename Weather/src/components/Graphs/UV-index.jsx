@@ -12,7 +12,12 @@ const UvGauge = ({ uv }) => {
 
     const uvWidth = width * (uv / maxUv);
 
-    const gradient = ctx.createLinearGradient(left -10, 10, left + uvWidth, -20);
+    const gradient = ctx.createLinearGradient(
+      left - 10,
+      10,
+      left + uvWidth,
+      -20
+    );
     gradient.addColorStop(0, "#fcb045");
     gradient.addColorStop(0.65, "rgba(255, 255, 255, 0)");
     return gradient;
@@ -44,12 +49,12 @@ const UvGauge = ({ uv }) => {
   };
 
   return (
-    <div className="graph container">
+    <>
       <header className="graph__header">
         <h3>UV Index</h3>
         <h3>{uv?.toFixed(2)} UV</h3>
       </header>
-      <div className="graph__content">
+      <div className="graph__content content-box">
         <Doughnut data={data} options={options} className="graph__canvas" />
         <div className="labels">
           {UvLabels.map((label, index) => (
@@ -57,7 +62,7 @@ const UvGauge = ({ uv }) => {
           ))}
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -8,6 +8,7 @@
   .forecast-day {
     min-height: 9rem;
     width: 100%;
+    padding: 0.5rem 0;
     .forecast-day__header {
       display: flex;
       flex-direction: column;
@@ -39,8 +40,8 @@
           font-size: 1.5rem;
           margin: 0;
           line-height: 1.2;
-          &.forecast-day__temp-min{
-            color: var(--gray)
+          &.forecast-day__temp-min {
+            color: var(--gray);
           }
         }
       }
@@ -53,6 +54,22 @@
           object-fit: contain;
         }
       }
+    }
+  }
+}
+
+@media screen and (max-width: 60rem) {
+  @media (pointer: fine) {
+    .forecast {
+      flex-wrap: wrap;
+      .forecast-day {
+        flex: 1 1 30%;
+      }
+    }
+  }
+  @media (pointer: coarse) {
+    .forecast {
+      overflow: scroll hidden;
     }
   }
 }

@@ -30,7 +30,7 @@ const Today = () => {
         <header className="container__header">
           <h2 className="today__time">{formattedDate}</h2>
         </header>
-        <div className="container__content">
+        <div className="container__content content-box">
           <div className="temperature">
             <div className="temperature__icon">
               <img src={icon} alt={weather?.current.condition.text} />

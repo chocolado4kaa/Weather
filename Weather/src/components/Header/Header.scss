@@ -29,8 +29,8 @@
     outline: none;
     width: 22.5rem;
     height: 3rem;
-    border-radius: 30px;
-    padding: 0 20px;
+    border-radius: 2rem;
+    padding: 0 1.25rem;
     background: var(--background-color);
     &::before {
       position: absolute;
@@ -38,7 +38,7 @@
       inset: 0;
       z-index: 0;
       padding: 1px;
-      border-radius: 30px;
+      border-radius: 2rem;
       background: var(--border-color);
       mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
       -webkit-mask: linear-gradient(#fff 0 0) content-box,
