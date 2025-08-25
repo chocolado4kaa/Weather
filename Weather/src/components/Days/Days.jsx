@@ -8,7 +8,7 @@ const Days = () => {
   const forecast =
     weather?.forecast.forecastday.slice(1, 7) || Array(6).fill(null);
 
-    const getIcon = (code) => {
+  const getIcon = (code) => {
     const iconObj = weatherIcons.find((w) => w.code === code);
     return iconObj?.dayicon;
   };
@@ -24,13 +24,14 @@ const Days = () => {
     };
   };
 
-  return (
-    <section className="forecast">
-      {forecast.map((day, index) => {
-        if (!day) return <div key={index} className="forecast-day container" />;
-        const { weekday, monthDay } = getFormattedDate(day.date);
-        return (
-          <div key={index} className="forecast-day container">
+  const renderDaysBlock = (day, index) => {
+    const { weekday, monthDay } = getFormattedDate(day.date);
+    return (
+      <div key={index} className="forecast-day container">
+        {day ? (
+          <></>
+        ) : (
+          <>
             <header className="forecast-day__header">
               <h3>{weekday}</h3>
               <p>{monthDay}</p>
@@ -48,8 +49,16 @@ const Days = () => {
                 <p className="forecast-day__temp-min">{day?.day.mintemp_c}°</p>
               </div>
             </div>
-          </div>
-        );
+          </>
+        )}
+      </div>
+    );
+  };
+
+  return (
+    <section className="forecast">
+      {forecast.map((day, index) => {
+        renderDaysBlock(day, index);
       })}
     </section>
   );

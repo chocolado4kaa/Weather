@@ -13,7 +13,6 @@ const Graphs = () => {
     localtime: weather?.location.localtime ?? 0,
   };
   const hours = weather?.forecast.forecastday?.[0].hour;
-  console.log(hours);
   return (
     <section className="graphs">
       <UvGauge uv={uv} />

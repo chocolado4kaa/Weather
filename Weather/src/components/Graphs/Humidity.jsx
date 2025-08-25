@@ -21,7 +21,6 @@ ChartJS.register(
 
 const Humidity = ({ dataset }) => {
   const humidityData = dataset?.map((item) => item.humidity) || [];
-  console.log(dataset);
 
   const currentHumidity =
     dataset && dataset.length > 0
