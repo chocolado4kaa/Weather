@@ -1,5 +1,61 @@
-.today{
-    div{
-        min-height: 18rem;
+.today {
+  .today__container {
+    min-height: 18rem;
+  }
+  .container__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2rem;
+    .temperature {
+      width: 25%;
+      height: 100%;
+      .temperature__icon {
+        width: 100%;
+        
+        img {
+          width: 100%;
+          max-height: 12rem;
+          object-fit: contain;
+        }
+      }
+      .temperature__value {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 4.5rem;
+        text-align: center;
+      }
     }
+    .weather {
+      width: 75%;
+      table {
+        width: 100%;
+        .table__dayTimes th {
+          font-style: normal;
+          font-weight: 400;
+          font-size: 1.5rem;
+        }
+        .table__hours th {
+          font-style: normal;
+          font-weight: 400;
+          font-size: 1.25rem;
+        }
+        .table__indicators td {
+          font-style: normal;
+          font-weight: 400;
+          font-size: 1.1rem;
+          .condition_icon {
+            height: 2rem;
+            width: 2.5rem;
+            object-fit: contain;
+          }
+          &.table__col-title {
+            font-weight: 300;
+            color: var(--light-gray);
+            text-align: end;
+          }
+        }
+      }
+    }
+  }
 }
