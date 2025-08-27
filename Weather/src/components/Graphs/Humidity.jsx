@@ -81,12 +81,12 @@ const Humidity = ({ dataset }) => {
   };
 
   return (
-    <div className="graph container">
+    <>
       <header className="graph__header">
         <h3>Humidity</h3>
         <h3>{currentHumidity}%</h3>
       </header>
-      <div className="graph__content">
+      <div className="graph__content content-box">
         <Line data={data} options={options} className="graph__canvas" />
         <div className="labels">
           {hours.map((hour, index) => (
@@ -94,7 +94,7 @@ const Humidity = ({ dataset }) => {
           ))}
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

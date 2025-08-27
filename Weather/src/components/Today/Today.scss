@@ -2,6 +2,12 @@
   .today__container {
     min-height: 18rem;
   }
+  .container__header {
+    justify-content: space-between;
+    .today__time.mobile {
+      display: none;
+    }
+  }
   .container__content {
     display: flex;
     align-items: center;
@@ -12,7 +18,7 @@
       height: 100%;
       .temperature__icon {
         width: 100%;
-        
+
         img {
           width: 100%;
           max-height: 12rem;
@@ -55,6 +61,90 @@
             text-align: end;
           }
         }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 48rem) {
+  .today .container__content .temperature .temperature__value {
+    font-size: 4rem;
+  }
+}
+
+@media screen and (max-width: 40rem) {
+  .today .container__header {
+    .today__time.mobile {
+      display: block;
+      span:last-child {
+        display: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 36rem) {
+  .today {
+    .container__content {
+      flex-direction: column;
+      gap: 2rem;
+      .temperature {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: center;
+        gap: 2rem;
+        .temperature__icon {
+          height: 100%;
+          width: auto;
+        }
+        .temperature__value {
+          display: flex;
+          align-items: center;
+        }
+      }
+      .weather {
+        width: 100%;
+        overflow: scroll hidden;
+        -webkit-mask-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0) 0%,
+          rgba(0, 0, 0, 1) 10%,
+          rgba(0, 0, 0, 1) 90%,
+          rgba(0, 0, 0, 0)
+        );
+        -webkit-mask-repeat: no-repeat;
+        -webkit-mask-size: 100% 100%;
+        mask-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0) 0%,
+          rgba(0, 0, 0, 1) 10%,
+          rgba(0, 0, 0, 1) 90%,
+          rgba(0, 0, 0, 0)
+        );
+        mask-repeat: no-repeat;
+        mask-size: 100% 100%;
+        table {
+          width: 50rem;
+          .table__indicators td {
+            line-height: 1.7;
+            &.table__col-title {
+              width: min-content;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 28rem) {
+  .today .container__header {
+    flex-wrap: wrap;
+    gap: 0.5rem 2rem;
+    .today__time.mobile {
+      span:last-child {
+        display: inline;
       }
     }
   }

@@ -33,17 +33,16 @@ const SunRise = ({ hours }) => {
   const data = {
     datasets: [
       {
-        data: [currentTime - sunRise, 20, sunSet - currentTime],
+        data: [currentTime - sunRise, 5, sunSet - currentTime],
         backgroundColor: [
           "rgba(255,255,255,0)",
           "#fcb045",
           "rgba(255,255,255,0)",
         ],
-        borderWidth: [1,25, 1],
+        borderWidth: [1, 5, 1],
         borderColor: ["#686868", "#fcb045", "#686868"],
-        cutout: "99.9%",
-        borderRadius: [0,1, 0],
-        borderDash: [5, 15],
+        cutout: "99.5%",
+        borderRadius: [0, 1, 0],
       },
     ],
   };
@@ -51,17 +50,19 @@ const SunRise = ({ hours }) => {
   const options = {
     rotation: -90,
     circumference: 180,
+    responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       tooltip: { enabled: false },
     },
   };
 
   return (
-    <div className="graph container">
+    <>
       <header className="graph__header">
         <h3>Sunrise and Sunset </h3>
       </header>
-      <div className="graph__content">
+      <div className="graph__content content-box">
         <Doughnut data={data} options={options} className="graph__canvas" />
         <div className="labels">
           <div className="label">
@@ -74,7 +75,7 @@ const SunRise = ({ hours }) => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

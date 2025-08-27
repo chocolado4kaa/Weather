@@ -4,14 +4,18 @@
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
+  .graphs__change-button {
+    display: none;
+  }
   .graph {
     min-height: 15rem;
     height: min-content;
     width: 100%;
-    padding: 1rem 1.5rem;
+    padding: 1rem 0;
     .graph__header {
       display: flex;
       justify-content: space-between;
+      padding: 0 1.5rem;
       h3 {
         margin: 0;
         font-weight: 400;
@@ -20,11 +24,11 @@
       }
     }
     .graph__content {
-      width: 100%;
       display: flex;
       justify-content: center;
       align-items: flex-start;
       flex-direction: column;
+      padding: 0 1.5rem;
       .labels {
         display: flex;
         justify-content: space-between;
@@ -32,32 +36,125 @@
         width: 100%;
         position: relative;
         height: 1.5rem;
-        &::before{
-            position: absolute;
-            content: "";
-            top: -7px;
-            left: -10px;
-            right: -10px;
-            border-top: 1px solid var(--light-gray);
+        &::before {
+          position: absolute;
+          content: "";
+          top: -7px;
+          left: -10px;
+          right: -10px;
+          border-top: 1px solid var(--light-gray);
         }
-        .label{
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
+        .label {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
         }
         p {
           font-style: normal;
           font-weight: 400;
           font-size: 0.75rem;
           margin: 0;
-          &.yellow{
+          &.yellow {
             color: var(--yellow);
           }
         }
       }
       .graph__canvas {
         max-height: 12rem;
-        width: 100%;
+        width: 100% !important;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 60rem) {
+  .graphs {
+    flex-wrap: wrap;
+    .graph {
+      flex: 1 1 0;
+      &:nth-child(4) {
+        flex: 1 1 100%;
+      }
+      .graph__content .graph__canvas {
+        max-height: 17rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 55rem) {
+  .graphs .graph .graph__content .graph__canvas {
+    max-height: 15rem;
+  }
+}
+
+@media screen and (max-width: 48rem) {
+  .graphs {
+    flex-wrap: nowrap;
+    .graphs__change-button {
+      display: flex;
+      flex-direction: column;
+      min-height: 15rem;
+      height: 100%;
+      gap: 1rem;
+      padding: 1rem 0;
+      width: 4rem;
+      height: 20rem;
+      button {
+        background: none;
+        outline: none;
+        border: none;
+        border-radius: 2rem;
+        cursor: pointer;
+        color: var(--main-color)
+      }
+      .indicators {
+        display: flex;
+        flex-direction: inherit;
+        align-items: center;
+        gap: 0.5rem;
+        width: 4rem;
+        span {
+          width: 0.5rem;
+          height: 0.5rem;
+          border-radius: 50%;
+          background: var(--light-gray);
+
+          &.active {
+            background: var(--yellow);
+          }
+        }
+      }
+    }
+    .graph {
+      height: 20rem;
+      .graph__content {
+        max-width: 28rem;
+        margin: 0 auto;
+        .labels p{
+          font-size: 1rem;
+        }
+      }
+      &.hidden {
+        display: none;
+      }
+      &.visible {
+        display: flex;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 28rem) {
+  .graphs{
+    flex-wrap: wrap;
+    .graphs__change-button{
+      display: none;
+    }
+    .graph{
+      flex:auto;
+      &.hidden{
+        display: flex;
       }
     }
   }

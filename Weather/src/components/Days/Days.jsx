@@ -25,10 +25,10 @@ const Days = () => {
   };
 
   const renderDaysBlock = (day, index) => {
-    const { weekday, monthDay } = getFormattedDate(day.date);
+    const { weekday, monthDay } = getFormattedDate(day?.date);
     return (
       <div key={index} className="forecast-day container">
-        {day ? (
+        {!day ? (
           <></>
         ) : (
           <>
@@ -57,9 +57,7 @@ const Days = () => {
 
   return (
     <section className="forecast">
-      {forecast.map((day, index) => {
-        renderDaysBlock(day, index);
-      })}
+      {forecast.map((day, index) => renderDaysBlock(day, index))}
     </section>
   );
 };
