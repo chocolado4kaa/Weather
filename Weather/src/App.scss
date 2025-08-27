@@ -57,7 +57,7 @@ body::before {
     rgba(255, 255, 255, 0.4) -81.35%,
     rgba(255, 255, 255, 0) 112.36%
   );
-  --search-icon: url("./public/icons/search_dark.svg");
+  --search-icon: url("/icons/search_dark.svg");
   --background-color: linear-gradient(
     162.91deg,
     rgba(255, 255, 255, 0.03) -1.68%,
@@ -81,7 +81,7 @@ body::before {
     rgba(73, 73, 73, 0.4) -81.35%,
     rgba(255, 255, 255, 0) 112.36%
   );
-  --search-icon: url("./public/icons/search_light.svg");
+  --search-icon: url("/icons/search_light.svg");
   --background-color: linear-gradient(
     162.91deg,
     rgba(0, 0, 0, 0.03) -1.68%,
