@@ -13,7 +13,7 @@ const Today = () => {
   const iconObj = weatherIcons.find(
     (w) => w.code === weather?.current.condition.code
   );
-  const icon = iconObj && (isDay ? iconObj.dayicon : iconObj.nighticon) ;
+  const icon = iconObj && (isDay ? iconObj.dayicon : iconObj.nighticon);
 
   const formattedDate = date.toLocaleString("en-US", {
     year: "numeric",
@@ -29,13 +29,19 @@ const Today = () => {
       <div className="today__container container">
         <header className="container__header">
           <h2 className="today__time">{formattedDate}</h2>
+          <h2 className="today__time mobile">
+            <span>{weather?.location.name}</span>
+            <span>, {weather?.location.country}</span>
+          </h2>
         </header>
         <div className="container__content content-box">
           <div className="temperature">
             <div className="temperature__icon">
               <img src={icon} alt={weather?.current.condition.text} />
             </div>
-            <div className="temperature__value">{weather?.current.temp_c}°C</div>
+            <div className="temperature__value">
+              {weather?.current.temp_c}°C
+            </div>
           </div>
           <div className="weather">
             <ForecastTable weather={weather} />

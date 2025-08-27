@@ -20,7 +20,12 @@ const Header = () => {
           <h1 className="header__location">
             {(loading && "Loading...") || (error && `${error}`)}
             {weather
-              ? `${weather.location.name}, ${weather.location.country}`
+              ? (
+                <>
+                <span>{weather.location.name}, </span>
+                <span>{weather.location.country}</span>
+                </>
+              )
               : ""}
           </h1>
         </div>

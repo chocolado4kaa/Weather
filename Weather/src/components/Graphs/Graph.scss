@@ -106,21 +106,22 @@
         border: none;
         border-radius: 2rem;
         cursor: pointer;
+        color: var(--main-color)
       }
       .indicators {
         display: flex;
         flex-direction: inherit;
         align-items: center;
         gap: 0.5rem;
-
+        width: 4rem;
         span {
           width: 0.5rem;
           height: 0.5rem;
           border-radius: 50%;
-          background: #ccc;
+          background: var(--light-gray);
 
           &.active {
-            background: #fcb045;
+            background: var(--yellow);
           }
         }
       }
@@ -138,6 +139,21 @@
         display: none;
       }
       &.visible {
+        display: flex;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 28rem) {
+  .graphs{
+    flex-wrap: wrap;
+    .graphs__change-button{
+      display: none;
+    }
+    .graph{
+      flex:auto;
+      &.hidden{
         display: flex;
       }
     }

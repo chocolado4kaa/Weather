@@ -33,17 +33,16 @@ const SunRise = ({ hours }) => {
   const data = {
     datasets: [
       {
-        data: [currentTime - sunRise, 20, sunSet - currentTime],
+        data: [currentTime - sunRise, 5, sunSet - currentTime],
         backgroundColor: [
           "rgba(255,255,255,0)",
           "#fcb045",
           "rgba(255,255,255,0)",
         ],
-        borderWidth: [1, 25, 1],
+        borderWidth: [1, 5, 1],
         borderColor: ["#686868", "#fcb045", "#686868"],
-        cutout: "99.9%",
+        cutout: "99.5%",
         borderRadius: [0, 1, 0],
-        borderDash: [5, 15],
       },
     ],
   };

@@ -92,3 +92,48 @@
       center / 70% auto;
   }
 }
+
+@media screen and (max-width: 40rem) {
+  .header {
+    .header__content{
+      gap: 1rem;
+    }
+    .header__container {
+      height: 4rem;
+      &.header__button {
+        width: 6.5rem;
+        &::after {
+          width: 4rem;
+        }
+        &.light::after {
+          left: 2.5rem;
+        }
+      }
+    }
+    .header__location span {
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+      &:first-child {
+        display: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 28rem) {
+  .header{
+    .header__current-location{
+      display: none;
+    }
+    .header__container{
+      width: 75%;
+    }
+    .header__functions{
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
+}
