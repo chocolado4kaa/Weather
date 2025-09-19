@@ -2,6 +2,7 @@ import ForecastTable from "./ForecastTable";
 import "./Today.scss";
 import { useWeather } from "../../hooks/useWeather";
 import weatherIcons from "../../shared/const/Conditions";
+import UseDate from "../../hooks/useDate";
 
 const Today = () => {
   const { weather } = useWeather();
@@ -15,20 +16,11 @@ const Today = () => {
   );
   const icon = iconObj && (isDay ? iconObj.dayicon : iconObj.nighticon);
 
-  const formattedDate = date.toLocaleString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-    hour12: false,
-  });
-
   return (
     <section className="today">
       <div className="today__container container">
         <header className="container__header">
-          <h2 className="today__time">{formattedDate}</h2>
+          <h2 className="today__time">{UseDate.fullDateTime(date)}</h2>
           <h2 className="today__time mobile">
             <span>{weather?.location.name}</span>
             <span>, {weather?.location.country}</span>

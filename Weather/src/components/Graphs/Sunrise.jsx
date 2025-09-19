@@ -1,34 +1,23 @@
 import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip } from "chart.js";
+import UseDate from "../../hooks/useDate";
 
 ChartJS.register(ArcElement, Tooltip);
 
 const SunRise = ({ hours }) => {
-  const to24Hour = (time) => {
-    const date = new Date(`1970-01-01 ${time}`);
-    return date.toLocaleTimeString("en-US", {
-      hour12: false,
-      hour: "2-digit",
-      minute: "2-digit",
-    });
-  };
-  const localTime = () => {
-    const date = new Date(hours.localtime);
-    return date.toLocaleTimeString("en-US", {
-      hour12: false,
-      hour: "2-digit",
-      minute: "2-digit",
-    });
-  };
-
+  const localTimeString = new Date(hours.localtime);
   const convertToMinutes = (timeStr) => {
     const [hours, minutes] = timeStr.split(":").map(Number);
     return hours * 60 + minutes;
   };
 
+  const to24Hour = (time) => {
+    return UseDate.to24Hour(time);
+  }
+
   const sunRise = convertToMinutes(to24Hour(hours.sunrise));
   const sunSet = convertToMinutes(to24Hour(hours.sunset));
-  const currentTime = convertToMinutes(localTime());
+  const currentTime = convertToMinutes(UseDate.localTime(localTimeString));
 
   const data = {
     datasets: [

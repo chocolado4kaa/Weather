@@ -1,6 +1,7 @@
 import "./Days.scss";
 import { useWeather } from "../../hooks/useWeather.jsx";
 import weatherIcons from "../../shared/const/Conditions.jsx";
+import UseDate from "../../hooks/useDate.jsx";
 
 const Days = () => {
   const { weather } = useWeather();
@@ -13,19 +14,8 @@ const Days = () => {
     return iconObj?.dayicon;
   };
 
-  const getFormattedDate = (dateStr) => {
-    const dateObj = new Date(dateStr);
-    return {
-      weekday: dateObj.toLocaleDateString("en-US", { weekday: "short" }),
-      monthDay: dateObj.toLocaleDateString("en-US", {
-        day: "numeric",
-        month: "long",
-      }),
-    };
-  };
-
   const renderDaysBlock = (day, index) => {
-    const { weekday, monthDay } = getFormattedDate(day?.date);
+    const { weekday, monthDay } = UseDate.getFormattedDate(day?.date);
     return (
       <div key={index} className="forecast-day container">
         {!day ? (
