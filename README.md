@@ -1,4 +1,4 @@
-# Weather App / Додаток Погоди
+# Weather App
 
 ## 🇬🇧 English Version
 
