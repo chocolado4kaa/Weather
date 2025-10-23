@@ -1,0 +1,171 @@
+body {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: var(--background-color);
+  transition: background 0.3s;
+}
+
+.main-content {
+  margin-top: 3rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  background: var(--background-color);
+  border-radius: 2rem;
+  &::before {
+    position: absolute;
+    content: "";
+    inset: 0;
+    padding: 1px;
+    border-radius: 2rem;
+    background: var(--border-color);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+  .container__header {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 1rem 2rem;
+    h2 {
+      font-size: 1.5rem;
+      margin: 0;
+      font-weight: 400;
+      color: var(--main-color);
+    }
+  }
+}
+
+[data-theme="dark"] {
+  --main-color: #ffffff;
+  --border-color: linear-gradient(
+    116.87deg,
+    rgba(255, 255, 255, 0.4) -81.35%,
+    rgba(255, 255, 255, 0) 112.36%
+  );
+  --search-icon: url("/icons/search_dark.svg");
+  --background-color: linear-gradient(
+    162.91deg,
+    rgba(255, 255, 255, 0.03) -1.68%,
+    rgba(255, 255, 255, 0.093125) 127.54%,
+    rgba(255, 255, 255, 0.112968) 127.56%,
+    rgba(255, 255, 255, 0.111191) 127.57%,
+    rgba(255, 255, 255, 0.15) 127.58%
+  );
+
+  background-color: #080338;
+  color: var(--main-color);
+  input {
+    color: var(--main-color);
+  }
+}
+
+[data-theme="light"] {
+  --main-color: #080338;
+  --border-color: linear-gradient(
+    116.87deg,
+    rgba(73, 73, 73, 0.4) -81.35%,
+    rgba(255, 255, 255, 0) 112.36%
+  );
+  --search-icon: url("/icons/search_light.svg");
+  --background-color: linear-gradient(
+    162.91deg,
+    rgba(0, 0, 0, 0.03) -1.68%,
+    rgba(255, 255, 255, 0.093125) 127.54%,
+    rgba(255, 255, 255, 0.112968) 127.56%,
+    rgba(255, 255, 255, 0.111191) 127.57%,
+    rgba(255, 255, 255, 0.15) 127.58%
+  );
+
+  background-color: #fff;
+  color: var(--main-color);
+  input {
+    color: var(--main-color);
+  }
+}
+
+#root {
+  max-width: 80rem;
+  margin: 0 auto;
+  text-align: center;
+
+  --light-gray: #c0c0c0;
+  --gray: #686868;
+  --yellow: #ffe55f;
+  .App {
+    padding: 2rem;
+  }
+}
+
+#root * {
+  :active,
+  :hover,
+  :focus {
+    outline: 0;
+    outline-offset: 0;
+  }
+}
+
+section {
+  margin: 2rem auto;
+}
+
+@media screen and (max-width: 90rem) {
+  html {
+    font-size: 90%;
+  }
+}
+
+@media screen and (max-width: 75rem) {
+  html {
+    font-size: 85%;
+  }
+  .main-content {
+    margin-top: 2rem;
+    .container,
+    .graph.container {
+      header,
+      .content-box {
+        padding-inline: 1rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 60rem) {
+  html {
+    font-size: 80%;
+  }
+}
+
+@media screen and (max-width: 48rem) {
+  html{
+    font-size: 70%;
+  }
+}
+
+@media screen and (max-width: 40rem) {
+  html{
+    font-size: 65%;
+  }
+}
+
+@media screen and (max-width: 36rem) {
+  html{
+    font-size: 60%;
+  }
+}

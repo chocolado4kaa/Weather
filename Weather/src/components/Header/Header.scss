@@ -1,0 +1,139 @@
+.header {
+  width: 100%;
+  .header__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .header__location {
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 100%;
+    letter-spacing: 0%;
+  }
+
+  .header__functions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .header__container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+    position: relative;
+    outline: none;
+    width: 22.5rem;
+    height: 3rem;
+    border-radius: 2rem;
+    padding: 0 1.25rem;
+    background: var(--background-color);
+    &::before {
+      position: absolute;
+      content: "";
+      inset: 0;
+      z-index: 0;
+      padding: 1px;
+      border-radius: 2rem;
+      background: var(--border-color);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    .header__search-icon {
+      background: var(--search-icon) no-repeat center center / contain;
+      width: 1.5rem;
+      height: 1.5rem;
+      display: inline-block;
+    }
+  }
+
+  .header__container .input-field {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+  }
+}
+
+.header__container.header__button {
+  width: 5rem;
+  overflow: hidden;
+  z-index: 1;
+  &.light {
+    &::after {
+      left: 2rem;
+      background: #fff url("/icons/cloud+sun.png") no-repeat center
+        center / 70% auto;
+    }
+  }
+  &::after {
+    left: -1px;
+    transition: all 0.3s ease-in-out;
+    z-index: -1;
+    position: absolute;
+    content: "";
+    inset: 0;
+    width: 3rem;
+    height: 100%;
+    border-radius: 100%;
+    background: #080338 url("/icons/cloud+moon.png") no-repeat center
+      center / 70% auto;
+  }
+}
+
+@media screen and (max-width: 40rem) {
+  .header {
+    .header__content{
+      gap: 1rem;
+    }
+    .header__container {
+      height: 4rem;
+      &.header__button {
+        width: 6.5rem;
+        &::after {
+          width: 4rem;
+        }
+        &.light::after {
+          left: 2.5rem;
+        }
+      }
+    }
+    .header__location span {
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+      &:first-child {
+        display: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 28rem) {
+  .header{
+    .header__current-location{
+      display: none;
+    }
+    .header__container{
+      width: 75%;
+    }
+    .header__functions{
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
+}
